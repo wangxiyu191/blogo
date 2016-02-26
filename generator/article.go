@@ -45,6 +45,9 @@ func (list articlesM) Swap(i, j int) {
 }
 
 func loadArticle(filePath string, fileName string) {
+	if !strings.HasSuffix(fileName, ".md") {
+		return
+	}
 	article := new(md.MdArticle)
 	input, err := ioutil.ReadFile(filePath + fileName)
 	util.CheckError(err)
@@ -70,14 +73,14 @@ func loadArticles() {
 	workDir, err := os.Getwd()
 	util.CheckError(err)
 
-	files, err := ioutil.ReadDir(workDir + "/articles")
+	files, err := ioutil.ReadDir(workDir + "/source/articles")
 	util.CheckError(err)
 
 	for _, file := range files {
 		if file.IsDir() == true {
 			continue
 		}
-		loadArticle(workDir+"/articles/", file.Name())
+		loadArticle(workDir+"/source/articles/", file.Name())
 
 	}
 	sort.Sort(articles)
