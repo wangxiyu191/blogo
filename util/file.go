@@ -30,3 +30,15 @@ func CopyDir(src string, dst string) {
 		CopyFile(filepath.Join(src, file.Name()), filepath.Join(dst, file.Name()))
 	}
 }
+
+func ClearDir(path string) {
+	files, err := ioutil.ReadDir(path)
+	CheckError(err)
+
+	for _, file := range files {
+		if file.IsDir() == true {
+			continue
+		}
+		os.Remove(filepath.Join(path, file.Name()))
+	}
+}

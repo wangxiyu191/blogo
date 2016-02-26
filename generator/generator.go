@@ -18,7 +18,8 @@ func Generate() {
 func resetBuild() {
 	workDir, err := os.Getwd()
 	util.CheckError(err)
-	err = os.RemoveAll(workDir + "/build/")
+
+	util.ClearDir(workDir + "/build/")
 	util.CheckError(err)
 
 }
