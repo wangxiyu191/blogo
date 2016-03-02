@@ -13,6 +13,9 @@ func Generate() {
 	generateStatic()
 	generateArticles()
 	generateIndex()
+	generateArchive()
+	generateLink()
+	generateAbout()
 }
 
 func resetBuild() {
