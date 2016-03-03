@@ -23,6 +23,9 @@ func CopyDir(src string, dst string) {
 	files, err := ioutil.ReadDir(src)
 	CheckError(err)
 
+	err = os.MkdirAll(dst, os.ModeDir|0755)
+	CheckError(err)
+
 	for _, file := range files {
 		if file.IsDir() == true {
 			continue
@@ -36,9 +39,10 @@ func ClearDir(path string) {
 	CheckError(err)
 
 	for _, file := range files {
+		joinedPath := filepath.Join(path, file.Name())
 		if file.IsDir() == true {
-			continue
+			os.RemoveAll(joinedPath)
 		}
-		os.Remove(filepath.Join(path, file.Name()))
+		os.Remove(joinedPath)
 	}
 }
