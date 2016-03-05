@@ -22,7 +22,7 @@ func resetBuild() {
 	workDir, err := os.Getwd()
 	util.CheckError(err)
 
-	util.ClearDir(workDir + "/build/")
+	util.ClearDir(workDir+"/build/", []string{})
 	util.CheckError(err)
 
 }
