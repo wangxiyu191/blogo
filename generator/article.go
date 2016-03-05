@@ -36,7 +36,7 @@ func (list articlesM) Len() int {
 	return len(list)
 }
 func (list articlesM) Less(i, j int) bool {
-	return list[i].Time.Before(list[j].Time)
+	return list[i].Time.After(list[j].Time)
 }
 func (list articlesM) Swap(i, j int) {
 	var temp ArticleM = list[j]
