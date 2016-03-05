@@ -7,13 +7,19 @@ import (
 	"os"
 )
 
+type LinkM struct {
+	Url         string `yaml:"url"`
+	Name        string `yaml:"name"`
+	Description string `yaml:"description"`
+}
+
 type ConfigM struct {
-	WorkDir     string
-	Domain      string `yaml:"domain"`
-	ArticlePath string `yaml:"article_path"`
-	GitRepo     string `yaml:"git_repo"`
-	Branch      string `yaml:"branch"`
-	Delete      bool   `yaml:"delete"`
+	Domain      string  `yaml:"domain"`
+	ArticlePath string  `yaml:"article_path"`
+	GitRepo     string  `yaml:"git_repo"`
+	Branch      string  `yaml:"branch"`
+	Delete      bool    `yaml:"delete"`
+	Links       []LinkM `yaml:"links"`
 }
 
 var (
