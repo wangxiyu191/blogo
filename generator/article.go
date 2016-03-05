@@ -55,7 +55,8 @@ func loadArticle(filePath string, fileName string) {
 	util.CheckError(err)
 
 	meta := article.Meta()
-	createTime, err := time.Parse("2006-1-2 15:04", meta["time"])
+	loc, _ := time.LoadLocation("Local")
+	createTime, err := time.ParseInLocation("2006-1-2 15:04", meta["time"], loc)
 	util.CheckError(err)
 
 	data := ArticleM{
