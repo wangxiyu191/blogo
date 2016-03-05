@@ -1,3 +1,3 @@
-# A static blog generator using go
+A static blog generator using go
 
-## Unfinished
+still under development
