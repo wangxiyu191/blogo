@@ -4,5 +4,6 @@ go:
   - 1.5
   - tip
 
+go_import_path: blogo
 
   
