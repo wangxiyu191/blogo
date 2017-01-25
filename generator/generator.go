@@ -17,6 +17,7 @@ func Generate() {
 	generateLink()
 	generateAbout()
 	generateFeed()
+	generateCNAME()
 }
 
 func resetBuild() {
