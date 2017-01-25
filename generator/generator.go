@@ -16,6 +16,7 @@ func Generate() {
 	generateArchive()
 	generateLink()
 	generateAbout()
+	generateFeed()
 }
 
 func resetBuild() {
