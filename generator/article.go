@@ -64,7 +64,7 @@ func loadArticle(filePath string, fileName string) {
 		Title:       meta["title"],
 		PostContent: template.HTML(article.Html()),
 		Time:        createTime,
-		ArticleUrl:  "/" + util.Config.ArticlePath + strings.TrimSuffix(fileName, ".md") + ".html",
+		ArticleUrl:  util.Config.Domain + util.Config.ArticlePath + strings.TrimSuffix(fileName, ".md") + ".html",
 	}
 	articles = append(articles, data)
 
