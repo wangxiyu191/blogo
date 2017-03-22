@@ -21,7 +21,7 @@ func Split(input string) (meta string, content string) {
 func Prase(input string, meta map[string]string) (err error) {
 	lines := strings.SplitAfter(input, "\n")
 	if lines[0][0:2] == "# " {
-		meta["title"] = lines[0][2:]
+		meta["title"] = strings.Trim(lines[0][2:], "\r\n")
 	}
 	for i := 2; i < len(lines)-1; i++ {
 		if !strings.Contains(lines[i], ":") {
